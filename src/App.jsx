@@ -12,7 +12,7 @@ import Wishlist from './pages/Wishlist';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import UserProfile from './pages/UserProfile';
-import TrendingDetails from './pages/trendingdetails';
+import TrendingDetails from './pages/TrendingDetails';
 
 
 // Import Common Components
