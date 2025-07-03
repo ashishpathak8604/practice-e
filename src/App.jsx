@@ -1,23 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 
 // Import Pages
-import Home from './pages/Home';
-import ProductListing from './pages/ProductListing';
-import ProductDetail from './pages/ProductDetail';
-import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
-import OrderSuccess from './pages/OrderSuccess';
-import Wishlist from './pages/Wishlist';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import UserProfile from './pages/UserProfile';
-import TrendingDetails from './pages/TrendingDetails';
+import Home from "./pages/Home";
+import ProductListing from "./pages/ProductListing";
+import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess";
+import Wishlist from "./pages/Wishlist";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import UserProfile from "./pages/UserProfile";
+import TrendingDetails from "./pages/TrendingDetails";
+import Men from './pages/Men';
+import Women from './pages/Women';
+import Accessories from './pages/Accessories';
 
 
 // Import Common Components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -29,8 +32,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/category/:category" element={<ProductListing />} />
-            <Route path="/product/:id" element={<ProductDetail />} /> 
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/trending/:id" element={<TrendingDetails />} />
+            <Route path="/category/men" element={<Men />} />
+            <Route path="/category/women" element={<Women />} />
+            <Route path="/category/accessories" element={<Accessories />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-success" element={<OrderSuccess />} />

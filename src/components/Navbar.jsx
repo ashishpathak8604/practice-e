@@ -17,8 +17,8 @@ const Navbar = () => {
           <Link to="/category/men" className="hover:text-blue-500">Men</Link>
           <Link to="/category/women" className="hover:text-blue-500">Women</Link>
           <Link to="/category/accessories" className="hover:text-blue-500">Accessories</Link>
-          <Link to="/category/new-arrivals" className="hover:text-blue-500">New Arrivals</Link>
-          <Link to="/category/sale" className="hover:text-blue-500">Sale</Link>
+          {/* <Link to="/category/new-arrivals" className="hover:text-blue-500">New Arrivals</Link> */}
+          {/* <Link to="/category/sale" className="hover:text-blue-500">Sale</Link> */}
         </nav>
 
         {/* Icons */}
