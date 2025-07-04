@@ -43,7 +43,7 @@ const Hero = () => {
 
   return (
     <section className="w-full h-[500px] relative overflow-hidden">
-      {/* Images */}
+      {/* Background Images */}
       {images.map((image, index) => (
         <img
           key={index}
@@ -55,15 +55,15 @@ const Hero = () => {
         />
       ))}
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/40 z-10" />
 
-      {/* Content */}
+      {/* Text Content */}
       <div className="relative z-20 flex flex-col justify-center items-center h-full text-center text-white">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
           {images[currentIndex].heading}
         </h1>
-        <p className="mb-6 text-lg">{images[currentIndex].sub}</p>
+        <p className="mb-6 text-base sm:text-lg">{images[currentIndex].sub}</p>
         <Link
           to="/category/new-arrivals"
           className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-200 transition"
@@ -72,21 +72,23 @@ const Hero = () => {
         </Link>
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Prev Button (hidden on mobile) */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 text-black p-3 rounded-full hover:scale-110 transition z-30"
+        className="hidden md:flex absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 text-black p-3 rounded-full hover:scale-110 transition z-30"
       >
         <FaChevronLeft />
       </button>
+
+      {/* Next Button (hidden on mobile) */}
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 text-black p-3 rounded-full hover:scale-110 transition z-30"
+        className="hidden md:flex absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 text-black p-3 rounded-full hover:scale-110 transition z-30"
       >
         <FaChevronRight />
       </button>
 
-      {/* Dots */}
+      {/* Dot Indicators */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
         {images.map((_, index) => (
           <div
