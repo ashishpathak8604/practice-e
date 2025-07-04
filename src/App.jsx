@@ -16,6 +16,8 @@ import TrendingDetails from "./pages/TrendingDetails";
 import Men from './pages/Men';
 import Women from './pages/Women';
 import Accessories from './pages/Accessories';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 // Import Common Components
@@ -24,6 +26,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
+    
     <Router>
       <div className="flex flex-col min-h-screen">
         <Navbar />
@@ -44,12 +47,15 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<UserProfile />} />
+          
           </Routes>
         </main>
+           <ToastContainer position="top-right" autoClose={2000} />
 
         <Footer />
       </div>
     </Router>
+
   );
 }
 

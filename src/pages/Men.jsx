@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
-import Hero from "../components/Hero";
-import Navbar from "../components/Navbar";
-import { FiGrid, FiList } from "react-icons/fi";
 import HeroSection from "../components/HeroSection";
 import menhero from "../assets/menhero.jpg";
 import shirt from "../assets/shirt.jpg";
@@ -27,7 +24,7 @@ const products = [
   },
   {
     id: 2,
-    title: " Classic Tie",
+    title: "Classic Tie",
     brand: "Modern Basics",
     price: 69.99,
     image: tie,
@@ -85,7 +82,6 @@ const products = [
 
 const Men = () => {
   const [sortOption, setSortOption] = useState("featured");
-
   const [visibleProducts, setVisibleProducts] = useState(products.slice(0, 4));
   const [loading, setLoading] = useState(false);
 
@@ -109,9 +105,16 @@ const Men = () => {
         image={menhero}
       />
 
-      <div className="flex px-6 py-10 gap-10">
-        {/* Filters */}
-        <aside className="w-1/5 hidden lg:block">
+      {/* Show Filters Button on Mobile */}
+      <div className="flex justify-end lg:hidden px-4 mt-4">
+        <button className="px-4 py-2 border rounded-md text-sm">
+          Show Filters
+        </button>
+      </div>
+
+      <div className="flex flex-col lg:flex-row px-4 sm:px-6 py-8 gap-8">
+        {/* Sidebar Filters */}
+        <aside className="w-full lg:w-1/5 hidden lg:block">
           <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
           {/* Categories */}
@@ -167,9 +170,7 @@ const Men = () => {
                   key={color.name}
                   className={`w-6 h-6 rounded-full border cursor-pointer hover:ring-2 hover:ring-offset-2 hover:ring-gray-400 ${color.class}`}
                   aria-label={color.name}
-                  title={
-                    color.name.charAt(0).toUpperCase() + color.name.slice(1)
-                  }
+                  title={color.name.charAt(0).toUpperCase() + color.name.slice(1)}
                 />
               ))}
             </div>
@@ -224,28 +225,30 @@ const Men = () => {
           </button>
         </aside>
 
-        {/* Products */}
+        {/* Products Section */}
         <div className="w-full lg:w-4/5">
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-sm">Showing 1–8 of 156 items</p>
-            <div className="flex items-center gap-4">
-              <label className="text-sm">Sort by:</label>
+          {/* Sort and Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+            <p className="text-sm text-gray-700">
+              Showing {visibleProducts.length} of {products.length} items
+            </p>
+            <div className="flex items-center gap-2 text-sm">
+              <label className="font-medium text-gray-700">Sort by:</label>
               <select
-                className="border px-2 py-1 text-sm"
+                className="px-3 py-2 rounded-full border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 transition"
                 value={sortOption}
                 onChange={(e) => setSortOption(e.target.value)}
               >
                 <option value="featured">Featured</option>
-                <option value="low-high">Price: Low to High</option>
-                <option value="high-low">Price: High to Low</option>
+                <option value="price-low-high">Price: Low to High</option>
+                <option value="price-high-low">Price: High to Low</option>
               </select>
-              <FiGrid className="text-xl" />
-              <FiList className="text-xl" />
             </div>
           </div>
 
+          {/* Product Cards Grid */}
           {loading ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
               {Array.from({ length: 4 }).map((_, idx) => (
                 <div
                   key={idx}
@@ -254,13 +257,14 @@ const Men = () => {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
               {visibleProducts.map((product) => (
-                <ProductCard key={product.id} product={product} type="men" /> // or "women"
+                <ProductCard key={product.id} product={product} type="men" />
               ))}
             </div>
           )}
 
+          {/* Load More Button */}
           <LoadMoreButton
             onClick={handleLoadMore}
             loading={loading}
@@ -268,6 +272,8 @@ const Men = () => {
           />
         </div>
       </div>
+
+    
     </>
   );
 };

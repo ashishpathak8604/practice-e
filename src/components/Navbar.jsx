@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiSearch, FiUser, FiHeart, FiShoppingCart } from 'react-icons/fi';
+import { useCart } from '../context/CartContext';
 
 const Navbar = () => {
+  const { cartItems } = useCart();
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <header className="shadow-md sticky top-0 bg-white z-50">
       <div className="max-w-[1200px] mx-auto px-4 flex justify-between items-center h-16">
-        
+
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold">
           LUXE
@@ -17,8 +21,6 @@ const Navbar = () => {
           <Link to="/category/men" className="hover:text-blue-500">Men</Link>
           <Link to="/category/women" className="hover:text-blue-500">Women</Link>
           <Link to="/category/accessories" className="hover:text-blue-500">Accessories</Link>
-          {/* <Link to="/category/new-arrivals" className="hover:text-blue-500">New Arrivals</Link> */}
-          {/* <Link to="/category/sale" className="hover:text-blue-500">Sale</Link> */}
         </nav>
 
         {/* Icons */}
@@ -32,9 +34,11 @@ const Navbar = () => {
           </Link>
           <Link to="/cart" className="relative">
             <FiShoppingCart className="cursor-pointer hover:text-blue-500" />
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-              2 {/* You can replace this with dynamic cart count */}
-            </span>
+            {totalQuantity > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {totalQuantity}
+              </span>
+            )}
           </Link>
         </div>
       </div>

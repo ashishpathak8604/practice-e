@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
-import { toast } from "react-toastify";
+
 import Loader from "../components/Loader";
 import dummyProducts from "../data/dummyTrendingProducts";
 import ReviewCard from "../components/ReviewCard";
@@ -22,11 +22,11 @@ const TrendingDetails = () => {
   }, [id]);
 
   const handleAddToCart = () => {
-    toast.success("Item added to cart!");
+    
   };
 
   const handleAddToWishlist = () => {
-    toast.info("Added to wishlist");
+    
   };
 
   if (loading) return <Loader />;

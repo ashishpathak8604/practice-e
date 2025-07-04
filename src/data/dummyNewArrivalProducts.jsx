@@ -2,11 +2,12 @@ import product1 from '../assets/product1.jpg';
 import product2 from '../assets/product2.jpg';
 import product3 from '../assets/product3.jpg';
 import product4 from '../assets/product4.jpg';
+import { v4 as uuidv4 } from 'uuid';
 
 const dummyNewArrivalProducts = [
 
     {
-      id: '1',
+      id: uuidv4(),
       title: 'Classic Denim Jacket',
       price: 79.99,
       description:
@@ -23,7 +24,7 @@ const dummyNewArrivalProducts = [
       ],
     },
     {
-      id: '2',
+      id: uuidv4(),
       title: 'Leather Handbag',
       price: 129.99,
       description:
@@ -40,7 +41,7 @@ const dummyNewArrivalProducts = [
       ],
     },
     {
-      id: '3',
+      id: uuidv4(),
       title: 'Modern Sneakers',
       price: 89.99,
       description:
@@ -57,7 +58,7 @@ const dummyNewArrivalProducts = [
       ],
     },
     {
-      id: '4',
+      id: uuidv4(),
       title: 'Elegant Satin Gown',
       price: 189.99,
       description:

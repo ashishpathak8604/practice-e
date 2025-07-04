@@ -4,10 +4,11 @@ import sneakers from '../assets/sneakers.jpg';
 import gown from '../assets/gown.jpg';
 import sunglasses from '../assets/sunglasses.jpg';
 import trenchcoat from '../assets/trenchcoat.jpg';
+import { v4 as uuidv4 } from 'uuid';
 
 const dummyTrendingProducts = [
     {
-        id: '1',
+        id: uuidv4(),
         title: 'Urban Street Hoodie',
         price: 59.99,
         image: hoodie,
@@ -18,7 +19,7 @@ const dummyTrendingProducts = [
         ],
     },
     {
-        id: '2',
+        id: uuidv4(),
         title: 'Vintage Leather Tote',
         price: 139.99,
         image: tote,
@@ -29,7 +30,7 @@ const dummyTrendingProducts = [
         ],
     },
     {
-        id: '3',
+        id: uuidv4(),
         title: 'Retro High-Top Sneakers',
         price: 99.99,
         image: sneakers,
@@ -40,7 +41,7 @@ const dummyTrendingProducts = [
         ],
     },
     {
-        id: '4',
+        id: uuidv4(),
         title: 'Elegant Satin Gown',
         price: 209.99,
         image: gown,
@@ -51,7 +52,7 @@ const dummyTrendingProducts = [
         ],
     },
     {
-        id: '5',
+        id: uuidv4(),
         title: 'Aviator Luxe Sunglasses',
         price: 149.99,
         image: sunglasses,
@@ -62,7 +63,7 @@ const dummyTrendingProducts = [
         ],
     },
     {
-        id: '6',
+        id: uuidv4(),
         title: 'Premium Wool Trench Coat',
         price: 319.99,
         image: trenchcoat,
